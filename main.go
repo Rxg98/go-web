@@ -2,27 +2,32 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
+	"go-web/dao/mysql"
+	"go-web/dao/redis"
+	"go-web/logger"
+	"go-web/routes"
+	"go-web/settings"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
-	"web_app/dao/mysql"
-	"web_app/dao/redis"
-	"web_app/logger"
-	"web_app/routes"
-	"web_app/settings"
 
 	"go.uber.org/zap"
 )
 
 // Go Web开发较通用的脚手架模板
+var filePath string
 
 func main() {
+	flag.StringVar(&filePath, "f", "./config.yaml", "配置文件路径，默认路径./config,yaml")
+	//解析命令行参数
+	flag.Parse()
 	// 1. 加载配置
-	if err := settings.Init(); err != nil {
+	if err := settings.Init(filePath); err != nil {
 		fmt.Printf("init settings failed, err:%v\n", err)
 		return
 	}

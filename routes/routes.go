@@ -2,8 +2,8 @@ package routes
 
 import (
 	"net/http"
-	"web_app/logger"
-	"web_app/settings"
+	"go-web/logger"
+	"go-web/settings"
 
 	"github.com/gin-gonic/gin"
 )

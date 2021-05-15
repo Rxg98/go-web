@@ -1,4 +1,4 @@
-module web_app
+module go-web
 
 go 1.14
 

@@ -8,7 +8,7 @@ import (
 	"runtime/debug"
 	"strings"
 	"time"
-	"web_app/settings"
+	"go-web/settings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/natefinch/lumberjack"
