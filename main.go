@@ -81,6 +81,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	// 5秒内优雅关闭服务（将未处理完的请求处理完再关闭服务），超过5秒就超时退出
+	// 测试
 	if err := srv.Shutdown(ctx); err != nil {
 		zap.L().Fatal("Server Shutdown", zap.Error(err))
 	}
